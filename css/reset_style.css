@@ -11,6 +11,18 @@
     font-family: 'Press Start 2p', cursive;
 }
 
+body {
+    min-width: 250px;
+    min-height: 250px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    background-color: #000;
+    justify-content: center;
+    align-items: center;
+}
+
 :root{
     /* clap(Minimo, Ideal, Maximo*/
 --font-xl: clamp(1rem, 5vw + 0.1rem, 2rem);
