@@ -15,19 +15,18 @@ body {
 /*Bloco flutuante para o usuario logar*/
 .loginGame {
 
-    padding: 5%;
-
+    padding: 25px;
     min-width: 160px;
 
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 25px;
 }
 
-/*Só definimos a largura da foto para manter a proporções da foto*/
 .logo{
-    width: 25vw;
-    max-width: 240px;
-    min-width: 70px;
+    aspect-ratio: 1/1;
+    height: 15vw;
+    max-height: 240px;
+    min-height: 70px;
 }
 
 .loginGame h1{
