@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+    <script src="./js/login.js" defer></script>
     <link rel="stylesheet" href="./css/style_index.css">
     <meta charset="UTF-8">
     <title>Jogo da velha</title>
@@ -9,7 +10,7 @@
 
 <body>
 
-    <form class="loginGame">
+    <div class="loginGame">
 
         <center>
             <img src="./image/logo.png" class="logo" alt="Jogo da velha">
@@ -19,14 +20,14 @@
 
         <div class="namePlayer">
 
-            <input type="text" placeholder="Player 1  ( O )" class="InputPlayer">
-            <input type="text" placeholder="Player 2  ( X )" class="InputPlayer">
+            <input type="text" placeholder="Player 1  ( X )" id="PlayerO" class="InputPlayer">
+            <input type="text" placeholder="Player 2  ( O )" id="PlayerX"class="InputPlayer">
 
         </div>
         <center>
             <button type="submit" class="btnStart">Start</button>
         </center>
-    </form>
+    </div>
 
 </body>
 
