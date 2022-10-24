@@ -19,4 +19,6 @@ function StartGameOFF(Player1, Player2) {
 
 btnStart.addEventListener('click', () => {
     StartGameOFF(PlayerX.value, PlayerO.value)
+
+    window.location = 'pages/game.html';
 });

@@ -1,0 +1,38 @@
+@import url('./reset_style.css');
+
+
+.Board {
+
+    position: relative;
+    border: solid #F0F 20px;
+    background-color: #FFF;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    /* Espaçõ entre as cartas */
+    width: 100%;
+    /* Largura em que o grid vai ocupar a tela vai ser de 100% */
+    max-width: 280px;
+    max-height: 280px;
+    /* Porém, não será pertimitido que ele seja maior que 800px */
+    /* margin de cima e de baixo de 0 px e da esquerda e da direita automatica (colocando o grid no centro da tela)  */
+}
+
+div {
+    background-color: aqua;
+}
+
+.position {
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center;
+    color: #FFF;
+}
+
+.X{
+    background-image: url("../image/X.png");
+}
+
+.O{
+    background-image: url("../image/O.png");
+}
