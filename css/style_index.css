@@ -1,20 +1,13 @@
+@import url('./reset_style.css');
+
 body {
+    min-width: 250px;
+    min-height: 250px;
     height: 100%;
     width: 100%;
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    left: 0%;
     position: absolute;
     display: flex;
-
     background-color: #000;
-    justify-content: center;
-    align-items: center;
-}
-
-/*Definido os conteúdo e os itens do elemento para ficarem no centro*/
-.centralizar {
     justify-content: center;
     align-items: center;
 }
@@ -22,19 +15,9 @@ body {
 /*Bloco flutuante para o usuario logar*/
 .loginGame {
 
-    display: flex;
-    flex-direction: column;
-    /*Difinições para manter o texto no centro da tela*/
-    padding: 30px;
-    overflow-y: auto;
+    padding: 5%;
 
-    /*Proporções de tamanho*/
-    width: 40%;
-    height: 54%;
-    max-width: 400px;
-    max-height: 300px;
-    min-width: 220px;
-    min-height: 220px;
+    min-width: 160px;
 
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 25px;
@@ -43,12 +26,12 @@ body {
 /*Só definimos a largura da foto para manter a proporções da foto*/
 .logo{
     width: 25vw;
-    max-width: 140px;
-    min-width: 100px;
+    max-width: 240px;
+    min-width: 70px;
 }
 
 .loginGame h1{
-    font-size: 2.5vw;
+    font-size: var(--font-xl);
     text-align: center;
     padding: 10px;
 }
@@ -58,19 +41,23 @@ body {
     gap: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 /*Estilização do input onde a pessoa coloca o nome*/
 .InputPlayer {
     text-align: center;
     border-radius: 15px;
-    width: 60%;
+    width: 70%;
+    min-width: 130px;
+    font-size: var(--font-md);
     padding: 5px;
 }
 
 .loginGame button{
     width: 30%;
-    margin-left: 35%;
+    min-width: 50px;
+
     margin-top: 5%;
     padding: 7px;
     border-radius: 15px;
