@@ -30,19 +30,16 @@ function move(id) {
 
     //Verifica se tem algum ganhador ou se o jogo ficou empatado e da um tempo para mostrar o tabuleiro
     setTimeout(() => {
+
         if (checkEndGame()) {
-            window.location = 'game.html';
-            lance = 0;
+            resetGame();
         }
-        lance++;
 
         if (lance >= 9) {
             window.alert("Empate");
-            window.location = 'game.html';
+            resetGame();
         }
     }, 10);
-
-
 
 }
 
@@ -94,4 +91,21 @@ function checkEndGame() {
         return true;
     }
 
+    lance++; //Caso ninguem ganhe ele soma 1 no contados de lances da partida
+    return false;
+}
+
+function resetGame() {
+    //Loop de repetição para remover a classe X e O de todos os elementos HTML e remoção do data-player
+    for (let x = 0; x < 9; x++) {
+
+        position[x].classList.remove("X");
+        position[x].classList.remove("O");
+
+        position[x].removeAttribute('data-player');
+
+    }
+
+    //Zera o contador de lance
+    lance = 0;
 }
