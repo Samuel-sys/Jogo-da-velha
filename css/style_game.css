@@ -36,3 +36,16 @@ div {
 .O{
     background-image: url("../image/O.png");
 }
+
+.scoreboard{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    font-size: --font-xl;
+}
+
+.scoreboard span{
+    font-size: --font-md;
+}
