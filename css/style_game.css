@@ -4,48 +4,64 @@
 .Board {
 
     position: relative;
-    border: solid #F0F 20px;
-    background-color: #FFF;
+    border: solid #F00 20px;
+    background-color: #000;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     /* Espaçõ entre as cartas */
     width: 100%;
     /* Largura em que o grid vai ocupar a tela vai ser de 100% */
-    max-width: 280px;
-    max-height: 280px;
+    max-width: 380px;
+    max-height: 380px;
+
+    min-width: 300px;
+    min-height: 300px;
     /* Porém, não será pertimitido que ele seja maior que 800px */
     /* margin de cima e de baixo de 0 px e da esquerda e da direita automatica (colocando o grid no centro da tela)  */
 }
 
-div {
-    background-color: aqua;
-}
-
 .position {
+    background-color: #FFF;
     aspect-ratio: 1/1;
     background-size: cover;
     background-position: center;
-    color: #FFF;
+    color: #F00;
 }
 
-.X{
+.X {
     background-image: url("../image/X.png");
 }
 
-.O{
+.O {
     background-image: url("../image/O.png");
 }
 
-.scoreboard{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+.scoreboard {
     padding: 5px;
-    font-size: --font-xl;
+    display: flex;
+    position: relative;
+    border: #FFF solid;
+    margin: 5%;
 }
 
-.scoreboard span{
-    font-size: --font-md;
+.score{
+    padding: 10px;
+    background-color: #F0F;
+    width: 100%;
+    min-width: 300px;
+
+    /*Colocamos o nome com o placar do jogador um do lado do outro*/
+    display: grid;
+    grid-template-columns: 1fr 0.3fr 1fr;
+    gap: 10px;
+}
+
+.score div{
+    font-size: var(--font-md);
+}
+
+.score button{
+    max-height: 0.3fr;
+    padding: 5px;
 }

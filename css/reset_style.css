@@ -21,6 +21,7 @@ body {
     background-color: #000;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /*Faz com que o site mude o flex-direction de column para row e vise versa*/
 }
 
 :root{

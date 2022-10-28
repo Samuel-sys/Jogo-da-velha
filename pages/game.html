@@ -18,24 +18,34 @@
 
 <body>
 
-    <header>
-        <div class="scoreboard">
-            <b class="PlayerX"> NAME PLAYER 1 </b> : <span class="score-player-x"></span> <br>
-            <b class="PlayerO"> NAME PLAYER 2 </b> : <span class="score-player-o"></span>
+    <div class="scoreboard">
+        <div class="score">
+            <div style="background-color: #FFF; padding: 15px;">
+                <span class="PlayerX"> NAME PLAYER 1 </span> : <span class="score-player-x">0</span>
+            </div>
+
+            <button>
+                Zerar
+            </button>
+
+            <div style="background-color: #FFF; padding: 15px;">
+                <span class="PlayerO"> NAME PLAYER 2 </span> : <span class="score-player-o">0</span>
+            </div>
         </div>
-    </header>
+    </div>
+
 
     <div class="Board">
         <!-- Terceira linha -->
         <div class="position" onclick="move(0)">1</div>
         <div class="position" onclick="move(1)">2</div>
         <div class="position" onclick="move(2)">3</div>
-        
+
         <!-- Segunda linha -->
         <div class="position" onclick="move(3)">4</div>
         <div class="position" onclick="move(4)">5</div>
         <div class="position" onclick="move(5)">6</div>
-        
+
         <!-- Primeira linha -->
         <div class="position" onclick="move(6)">7</div>
         <div class="position" onclick="move(7)">8</div>
