@@ -95,6 +95,24 @@ function checkEndGame() {
     return false;
 }
 
+document.onkeyup = (x) => {
+    switch (x.key) {
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            move(+x.key - 1);
+            break;
+        default:
+            break;
+    }
+}
+
 function resetGame() {
     //Loop de repetição para remover a classe X e O de todos os elementos HTML e remoção do data-player
     for (let x = 0; x < 9; x++) {
@@ -108,24 +126,4 @@ function resetGame() {
 
     //Zera o contador de lance
     lance = 0;
-}
-
-document.onkeyup = (x) => {
-    switch (x.key) {
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-            console.log(x);
-            move(+x.key - 1);
-            break;
-
-        default:
-            break;
-    }
 }
