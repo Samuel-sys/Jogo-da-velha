@@ -79,3 +79,13 @@
     max-height: 0.3fr;
     padding: 5px;
 }
+
+.ganhou{
+    background-color: #ff0;
+}
+
+.resetGame{
+    width: 100%;
+    height: 100%;
+    background-color: #F0F;
+}

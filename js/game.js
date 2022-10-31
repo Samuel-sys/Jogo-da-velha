@@ -1,12 +1,13 @@
 const position = document.querySelectorAll('.position');
 let jogador = true; //Verdadeiro = X Falso = O
 let lance = 0; //conta quantos lance já foram feitos, se tiver 9 lances sem vencedor ele da a partida como empatada 
+//let reset = document.querySelector(".resetGame");
 
-//Função responsavel por consulta qual o player que marcou essa caixa
-function getByDataPlayer(id) {
-    //para evitar que o sistema de finalize a partida por conta de ter 3 campo iguais a null 
-    //(O jogo só pode para se tiver 3 campos iguais a "X" ou "O")
-    return position[id].getAttribute('data-player') == null ? id : position[id].getAttribute('data-player');
+//Criamos 3 listas para armazenar a data do jogador que jogou na casa do tabuleiro de jogo da velha
+let game = {
+    'row1': [],
+    'row2': [],
+    'row3': []
 }
 
 function move(id) {
@@ -32,7 +33,7 @@ function move(id) {
     setTimeout(() => {
 
         if (checkEndGame()) {
-            resetGame();
+            //reset.style.position = "absolute";
         }
 
         if (lance >= 9) {
@@ -43,16 +44,51 @@ function move(id) {
 
 }
 
-function checkEndGame() {
+function rederMove(m, n) {
 
-    //Criamos 3 listas para armazenar a data do jogador que jogou na casa do tabuleiro de jogo da velha
-    let game = {
+    //Essaa função vai coloca
+    if (m == "row") {
+        console.log(n);
+        for (let x = n * 3; x < (n * 3 + 3); x++) {
+            console.log(x);
+            position[x].classList.add('ganhou');
+        }
+    }
+
+    if (m == "colum") {
+        position[n].classList.add('ganhou');
+        position[n + 3].classList.add('ganhou');
+        position[n + 6].classList.add('ganhou');
+    }
+
+    if(m == "diagonal" && n == 0){
+        position[0].classList.add('ganhou');
+        position[4].classList.add('ganhou');
+        position[8].classList.add('ganhou');
+    }
+
+    if(m == "diagonal" && n == 2){
+        position[2].classList.add('ganhou');
+        position[4].classList.add('ganhou');
+        position[6].classList.add('ganhou');
+    }
+
+}
+
+//Função responsavel por consulta qual o player que marcou essa caixa
+function getByDataPlayer(id) {
+    //para evitar que o sistema de finalize a partida por conta de ter 3 campo iguais a null 
+    //(O jogo só pode para se tiver 3 campos iguais a "X" ou "O")
+    return position[id].getAttribute('data-player') == null ? id : position[id].getAttribute('data-player');
+}
+
+function checkEndGame() {
+    game = {
         'row1': [],
         'row2': [],
         'row3': []
-    }
-
-    //Criamos um loop que irá fazer a verificação de todas as casa da # e armazenar nas litas
+    };
+    //Criamos um loop que irá fazer a verificação de todas as casa da # e armazenar nas listas
     for (let x = 0; x <= 2; x++) {
         game['row1'].push(getByDataPlayer(x));
         game['row2'].push(getByDataPlayer(x + 3));
@@ -67,27 +103,27 @@ function checkEndGame() {
             game[`row${x + 1}`][0] == game[`row${x + 1}`][1]
             && game[`row${x + 1}`][0] == game[`row${x + 1}`][2]
         ) {
-            window.alert(`O "${game[`row${x + 1}`][0]}" Ganhou! Linha ${x + 1}`);
+            rederMove('row', x);
             return true;
-        } else
+        }
 
-            //Verifica todas as Colunas do #
-            if (
-                game[`row${1}`][x] == game[`row${2}`][x]
-                && game[`row${1}`][x] == game[`row${3}`][x]
-            ) {
-                window.alert(`O "${game[`row${1}`][x]}" Ganhou! coluna ${x + 1}`);
-                return true;
-            }
+        //Verifica todas as Colunas do #
+        if (
+            game[`row${1}`][x] == game[`row${2}`][x]
+            && game[`row${1}`][x] == game[`row${3}`][x]
+        ) {
+            rederMove('colum', x);
+            return true;
+        }
     }
 
     //Verifica as 2 posições cruzadas na #
     if (game['row1'][0] == game['row2'][1] && game['row1'][0] == game['row3'][2]) {
-        window.alert(`O "${game['row1'][0]}" Ganhou! cruzado`);
+        rederMove("diagonal", 0)
         return true;
     }
     if (game['row3'][0] == game['row2'][1] && game['row3'][0] == game['row1'][2]) {
-        window.alert(`O "${game['row3'][0]}" Ganhou! cruzado`);
+        rederMove("diagonal", 2)
         return true;
     }
 
@@ -119,6 +155,9 @@ function resetGame() {
 
         position[x].classList.remove("X");
         position[x].classList.remove("O");
+        position[x].classList.remove("ganhou");
+        //reset.style.position = "";
+
 
         position[x].removeAttribute('data-player');
 
