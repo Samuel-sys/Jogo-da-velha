@@ -11,8 +11,6 @@ let game = {
 
 function move({ target }) {
 
-    console.log(target);
-    console.log(target.parentNode);
     var position = target.parentNode;
 
     //Verifica se o campo já foi preenchido ou não
