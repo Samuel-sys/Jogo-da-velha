@@ -42,6 +42,28 @@ function move({ target }) {
 
 }
 
+function resetGame() {
+    const position = document.querySelectorAll('.position');
+
+    //Loop de repetição para remover a classe X e O de todos os elementos HTML e remoção do data-player
+    for (let x = 0; x < 9; x++) {
+
+        //Limpa o taboleiro
+        position[x].classList.remove("X");
+        position[x].classList.remove("O");
+        position[x].classList.remove("winner");
+        position[x].removeAttribute('data-player');
+
+        //Limpa o placar e atualiza com o placar atual
+        renderScore();
+        let champ = document.querySelector('.champ');
+        if (champ) scoreBoard.removeChild(champ);
+
+        //zera os lances do jogo que controla e informa se o jogo acabou empatado ou não
+        lance = 0;
+    }
+}
+
 //Função responsavel por consulta qual o player que marcou essa caixa
 function getByDataPlayer(id) {
     const position = document.querySelectorAll('.position');

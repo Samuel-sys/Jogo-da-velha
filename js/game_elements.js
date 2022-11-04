@@ -7,28 +7,6 @@ const scoreX = document.querySelector('.score-player-x');
 const PlayerO = document.querySelector('.PlayerO');
 const scoreO = document.querySelector('.score-player-o');
 
-function resetGame() {
-    const position = document.querySelectorAll('.position');
-
-    //Loop de repetição para remover a classe X e O de todos os elementos HTML e remoção do data-player
-    for (let x = 0; x < 9; x++) {
-
-        //Limpa o taboleiro
-        position[x].classList.remove("X");
-        position[x].classList.remove("O");
-        position[x].classList.remove("winner");
-        position[x].removeAttribute('data-player');
-
-        //Limpa o placar e atualiza com o placar atual
-        renderScore();
-        let champ = document.querySelector('.champ');
-        if (champ) scoreBoard.removeChild(champ);
-
-        //zera os lances do jogo que controla e informa se o jogo acabou empatado ou não
-        lance = 0;
-    }
-}
-
 const createElement = (tag, className) => {
 
     /*Essa função vai ser responsavel de criar um elemento e já inserir ele dentro de uma classe*/
@@ -133,8 +111,7 @@ function rederMove(m, n) {
 }
 
 function renderChamp(player) {
-    var champ = document.createElement("h3");
-    champ.classList.add("champ");
+    var champ = createElement("h3", "champ");
 
     if (player) {
         champ.innerHTML = `${localStorage.getItem("Player" + player)} (${player}) Ganhou`
