@@ -11,6 +11,9 @@ var game = {
 
 function move({ target }) {
 
+    //Caso o jogo tenha acabado com uma vitoria ou empate ele para o evendo de "move" aqui
+    if(document.querySelector('.resetGame')) return;
+
     let position = target.parentNode;
 
     //Verifica se o campo já foi preenchido ou não
@@ -58,6 +61,10 @@ function resetGame() {
         renderScore();
         let champ = document.querySelector('.champ');
         if (champ) scoreBoard.removeChild(champ);
+
+        //remove a tela de reset game
+        let screenReset = document.querySelector('.resetGame');
+        if (screenReset) board.removeChild(screenReset);
 
         //zera os lances do jogo que controla e informa se o jogo acabou empatado ou não
         lance = 0;
@@ -156,4 +163,4 @@ function zerarScore() {
 }
 
 //função para zerar o placar e reiniciar o jogo do 0
-document.querySelector(".zerar").addEventListener('click', ()=> zerarScore());
+document.querySelector(".zerar").addEventListener('click', () => zerarScore());

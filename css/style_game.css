@@ -97,7 +97,13 @@
 
 .iconReset{
     background-color: #CCC;
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../image/reset.png");
     padding: 20px;
     border-radius: 100%;
     width: 15%;
+    height: 15%;
+    cursor: pointer;
 }

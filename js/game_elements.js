@@ -105,20 +105,24 @@ function rederMove(m, n) {
     let score = +localStorage.getItem("score" + player) + 1;
     localStorage.setItem("score" + player, score);
 
+    //atualiza o placar, informa quem ganhou e carrega a tela de reiniciar o jogo
     renderScore();
     renderChamp(player);
+    renderResetGame();
 
 }
 
 function renderChamp(player) {
     var champ = createElement("h3", "champ");
 
+    //informa qual o player que ganhou, se no método não for informado nenhum player ele considera que foi empate
     if (player) {
         champ.innerHTML = `${localStorage.getItem("Player" + player)} (${player}) Ganhou`
     } else {
         champ.innerHTML = "Empate"
     }
     scoreBoard.appendChild(champ);
+    renderResetGame();
 }
 
 function renderScore() {
@@ -130,6 +134,17 @@ function renderScore() {
     //pega o placar do jogo no localStorage do navegador
     scoreX.innerHTML = localStorage.getItem("scoreX");
     scoreO.innerHTML = localStorage.getItem("scoreO");
+}
+
+function renderResetGame() {
+    let screenReset = createElement("div", "resetGame");
+    let iconReset = createElement("img", "iconReset");
+
+    screenReset.appendChild(iconReset);
+
+    iconReset.addEventListener('click', resetGame);
+
+    board.appendChild(screenReset);
 }
 
 window.onload = () => {
