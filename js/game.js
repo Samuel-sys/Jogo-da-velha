@@ -33,13 +33,10 @@ function move({ target }) {
     //Verifica se tem algum ganhador ou se o jogo ficou empatado e da um tempo para mostrar o tabuleiro
     setTimeout(() => {
 
-        if (checkEndGame()) {
-            //reset.style.position = "absolute";
-        }
+        checkEndGame()
 
         if (lance >= 9) {
-            window.alert("Empate");
-            resetGame();
+            renderChamp();
         }
     }, 10);
 

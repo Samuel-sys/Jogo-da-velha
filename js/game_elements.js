@@ -13,12 +13,18 @@ function resetGame() {
     //Loop de repetição para remover a classe X e O de todos os elementos HTML e remoção do data-player
     for (let x = 0; x < 9; x++) {
 
+        //Limpa o taboleiro
         position[x].classList.remove("X");
         position[x].classList.remove("O");
         position[x].classList.remove("winner");
-
         position[x].removeAttribute('data-player');
 
+        //Limpa o placar e atualiza com o placar atual
+        renderScore();
+        var champ = document.querySelector('.champ');
+        if (champ) scoreBoard.removeChild(champ);
+
+        //zera os lances do jogo que controla e informa se o jogo acabou empatado ou não
         lance = 0;
     }
 }
@@ -76,7 +82,7 @@ function rederMove(m, n) {
 
     //Essaa função vai coloca os campo que levaram o player a vitoria em destaque
     if (m == "row") {
-        for (let x = n; x < (n * 3 + 3); x++) {
+        for (let x = n *3; x < (n * 3 + 3); x++) {
             position[x].classList.add('winner');
         }
     }
@@ -115,14 +121,28 @@ function rederMove(m, n) {
 
     Devido a isso temos que aplicar essa mesma logica aqui para descobrimos qual player ganhou (X ou O)*/
     var player = m == "row" ?
-        `score${position[n * 3].getAttribute('data-player')}` :
-        `score${position[n].getAttribute('data-player')}`;
+        position[n * 3].getAttribute('data-player') :
+        position[n].getAttribute('data-player');
 
-    var score = +localStorage.getItem(player) + 1;
-    localStorage.setItem(player, score);
+    //Pegamos o valor de pontos do local storage e adicionamos 1 ponto nele
+    var score = +localStorage.getItem("score" + player) + 1;
+    localStorage.setItem("score" + player, score);
 
     renderScore();
+    renderChamp(player);
 
+}
+
+function renderChamp(player) {
+    var champ = document.createElement("h3");
+    champ.classList.add("champ");
+
+    if (player) {
+        champ.innerHTML = localStorage.getItem("Player" + player) + " Ganhou"
+    } else{
+        champ.innerHTML = "Empate"
+    }
+    scoreBoard.appendChild(champ);
 }
 
 function renderScore() {
