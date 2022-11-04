@@ -1,6 +1,6 @@
 var player = true; //Verdadeiro = X Falso = O
 var lance = 0; //conta quantos lance já foram feitos, se tiver 9 lances sem vencedor ele da a partida como empatada 
-//let reset = document.querySelector(".resetGame");
+
 
 //Criamos 3 listas para armazenar a data do jogador que jogou na casa do tabuleiro de jogo da velha
 var game = {
