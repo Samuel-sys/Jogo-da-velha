@@ -1,9 +1,9 @@
-let player = true; //Verdadeiro = X Falso = O
-let lance = 0; //conta quantos lance já foram feitos, se tiver 9 lances sem vencedor ele da a partida como empatada 
+var player = true; //Verdadeiro = X Falso = O
+var lance = 0; //conta quantos lance já foram feitos, se tiver 9 lances sem vencedor ele da a partida como empatada 
 //let reset = document.querySelector(".resetGame");
 
 //Criamos 3 listas para armazenar a data do jogador que jogou na casa do tabuleiro de jogo da velha
-let game = {
+var game = {
     'row1': [],
     'row2': [],
     'row3': []
@@ -125,6 +125,12 @@ document.onkeyup = (x) => {
     }
 }
 
-function zerarScore(){
-
+//Zera o placar do jogo e coloca o X para começar o jogo de novo
+function zerarScore() {
+    localStorage.setItem("scoreO", "0");
+    localStorage.setItem("scoreX", "0");
+    player = true;
+    resetGame();
 }
+
+document.querySelector(".zerar").addEventListener('click', ()=> zerarScore());

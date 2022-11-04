@@ -69,7 +69,6 @@ function renderGame() {
         position.innerHTML = `<h1> ${tabuleiro[x]} </h1>`;
 
         listPosition.push(position);
-
         board.appendChild(position);
     }
 
@@ -82,7 +81,7 @@ function rederMove(m, n) {
 
     //Essaa função vai coloca os campo que levaram o player a vitoria em destaque
     if (m == "row") {
-        for (let x = n *3; x < (n * 3 + 3); x++) {
+        for (let x = n * 3; x < (n * 3 + 3); x++) {
             position[x].classList.add('winner');
         }
     }
@@ -138,8 +137,8 @@ function renderChamp(player) {
     champ.classList.add("champ");
 
     if (player) {
-        champ.innerHTML = localStorage.getItem("Player" + player) + " Ganhou"
-    } else{
+        champ.innerHTML = `${localStorage.getItem("Player" + player)} (${player}) Ganhou`
+    } else {
         champ.innerHTML = "Empate"
     }
     scoreBoard.appendChild(champ);
