@@ -11,7 +11,7 @@ let game = {
 
 function move({ target }) {
 
-    var position = target.parentNode;
+    let position = target.parentNode;
 
     //Verifica se o campo já foi preenchido ou não
     if (position.className.includes('X') || position.className.includes('O')) {
@@ -125,3 +125,6 @@ document.onkeyup = (x) => {
     }
 }
 
+function zerarScore(){
+
+}
