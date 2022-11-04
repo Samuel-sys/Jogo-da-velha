@@ -45,8 +45,6 @@ function move({ target }) {
 
 }
 
-
-
 //Função responsavel por consulta qual o player que marcou essa caixa
 function getByDataPlayer(id) {
     const position = document.querySelectorAll('.position');
@@ -121,6 +119,9 @@ document.onkeyup = (x) => {
         case '9':
             //Realizamos uma querry e pegamos o elemento HTML que tenha a classe boardX onde que o "X" e o numero do teclado que ele clicou 
             move({ target: document.querySelector(`.board${x.key}`).children[0] });
+            break;
+        case '0':
+            resetGame();
             break;
         default:
             break;

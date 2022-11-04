@@ -7,6 +7,22 @@ const scoreX = document.querySelector('.score-player-x');
 const PlayerO = document.querySelector('.PlayerO');
 const scoreO = document.querySelector('.score-player-o');
 
+function resetGame() {
+    const position = document.querySelectorAll('.position');
+
+    //Loop de repetição para remover a classe X e O de todos os elementos HTML e remoção do data-player
+    for (let x = 0; x < 9; x++) {
+
+        position[x].classList.remove("X");
+        position[x].classList.remove("O");
+        position[x].classList.remove("winner");
+
+        position[x].removeAttribute('data-player');
+
+        lance = 0;
+    }
+}
+
 const createElement = (tag, className) => {
 
     /*Essa função vai ser responsavel de criar um elemento e já inserir ele dentro de uma classe*/
@@ -61,26 +77,26 @@ function rederMove(m, n) {
     //Essaa função vai coloca os campo que levaram o player a vitoria em destaque
     if (m == "row") {
         for (let x = n; x < (n * 3 + 3); x++) {
-            position[x].classList.add('ganhou');
+            position[x].classList.add('winner');
         }
     }
 
     if (m == "colum") {
-        position[n].classList.add('ganhou');
-        position[n + 3].classList.add('ganhou');
-        position[n + 6].classList.add('ganhou');
+        position[n].classList.add('winner');
+        position[n + 3].classList.add('winner');
+        position[n + 6].classList.add('winner');
     }
 
     if (m == "diagonal" && n == 0) {
-        position[0].classList.add('ganhou');
-        position[4].classList.add('ganhou');
-        position[8].classList.add('ganhou');
+        position[0].classList.add('winner');
+        position[4].classList.add('winner');
+        position[8].classList.add('winner');
     }
 
     if (m == "diagonal" && n == 2) {
-        position[2].classList.add('ganhou');
-        position[4].classList.add('ganhou');
-        position[6].classList.add('ganhou');
+        position[2].classList.add('winner');
+        position[4].classList.add('winner');
+        position[6].classList.add('winner');
     }
 
     /*Para descobrir o player temos que usar uma logia um pouco estranha, nos estamos usando o metodo querySelectorAll onde 
@@ -98,9 +114,9 @@ function rederMove(m, n) {
     e se for 2 vai dar 6 (que e o 1º index da linha 3).
 
     Devido a isso temos que aplicar essa mesma logica aqui para descobrimos qual player ganhou (X ou O)*/
-    var player = m == "row"?
-    `score${position[n * 3].getAttribute('data-player')}` :
-    `score${position[n].getAttribute('data-player')}`;
+    var player = m == "row" ?
+        `score${position[n * 3].getAttribute('data-player')}` :
+        `score${position[n].getAttribute('data-player')}`;
 
     var score = +localStorage.getItem(player) + 1;
     localStorage.setItem(player, score);
