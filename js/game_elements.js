@@ -21,7 +21,7 @@ function resetGame() {
 
         //Limpa o placar e atualiza com o placar atual
         renderScore();
-        var champ = document.querySelector('.champ');
+        let champ = document.querySelector('.champ');
         if (champ) scoreBoard.removeChild(champ);
 
         //zera os lances do jogo que controla e informa se o jogo acabou empatado ou não
@@ -47,11 +47,11 @@ function renderGame() {
         </div>
     */
 
-    var listPosition = [];
+    let listPosition = [];
 
     /*Essa e uma pré-visualização de como o tabuleiro vai ficar, estamos colocando o números que o player pode digitar no seu
     teclado para que assim ele possa interagir no tabuleiro sem ser preciso que ele clique obrigatoriamente com o mouse*/
-    var tabuleiro =
+    let tabuleiro =
         [
             '7', '8', '9',
             '4', '5', '6',
@@ -120,12 +120,12 @@ function rederMove(m, n) {
     e se for 2 vai dar 6 (que e o 1º index da linha 3).
 
     Devido a isso temos que aplicar essa mesma logica aqui para descobrimos qual player ganhou (X ou O)*/
-    var player = m == "row" ?
+    let player = m == "row" ?
         position[n * 3].getAttribute('data-player') :
         position[n].getAttribute('data-player');
 
     //Pegamos o valor de pontos do local storage e adicionamos 1 ponto nele
-    var score = +localStorage.getItem("score" + player) + 1;
+    let score = +localStorage.getItem("score" + player) + 1;
     localStorage.setItem("score" + player, score);
 
     renderScore();
