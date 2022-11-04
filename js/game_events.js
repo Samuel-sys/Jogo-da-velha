@@ -133,4 +133,5 @@ function zerarScore() {
     resetGame();
 }
 
+//função para zerar o placar e reiniciar o jogo do 0
 document.querySelector(".zerar").addEventListener('click', ()=> zerarScore());
