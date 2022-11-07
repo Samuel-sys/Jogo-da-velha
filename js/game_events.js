@@ -9,12 +9,19 @@ var game = {
     'row3': []
 }
 
-function move({ target }) {
+function move({ target, id }) {
 
     //Caso o jogo tenha acabado com uma vitoria ou empate ele para o evendo de "move" aqui
-    if(document.querySelector('.resetGame')) return;
+    if (document.querySelector('.resetGame')) return;
 
-    let position = target.parentNode;
+    let position = "";
+
+    //O usuario vai poder entrar no metodo tanto com o ID quanto com o elemento HTML
+    if (target) position = target.parentNode;
+    else if (id) position = getByPositionHTML(id);
+    else return;
+
+    console.log(position);
 
     //Verifica se o campo já foi preenchido ou não
     if (position.className.includes('X') || position.className.includes('O')) {
@@ -80,6 +87,10 @@ function getByDataPlayer(id) {
     return position[id].getAttribute('data-player') == null ? id : position[id].getAttribute('data-player');
 }
 
+function getByPositionHTML(id) {
+    return position = document.querySelector(`.board${id}`);
+}
+
 function checkEndGame() {
 
     const position = document.querySelectorAll('.position');
@@ -142,9 +153,8 @@ document.onkeyup = (x) => {
         case '6':
         case '7':
         case '8':
-        case '9':
-            //Realizamos uma querry e pegamos o elemento HTML que tenha a classe boardX onde que o "X" e o numero do teclado que ele clicou 
-            move({ target: document.querySelector(`.board${x.key}`).children[0] });
+        case '9': 
+            move({ id: x.key });
             break;
         case '0':
             resetGame();
