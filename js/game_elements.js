@@ -7,7 +7,7 @@ const scoreX = document.querySelector('.score-player-x');
 const PlayerO = document.querySelector('.PlayerO');
 const scoreO = document.querySelector('.score-player-o');
 
-const resetGameElement = () =>{ return document.querySelector(".resetGame");}
+const resetGameElement = () => { return document.querySelector(".resetGame"); }
 
 const createElement = (tag, className) => {
 
@@ -122,6 +122,7 @@ function renderChamp(player) {
         champ.innerHTML = `${localStorage.getItem("Player" + player)} (${player}) Ganhou`
     } else {
         champ.innerHTML = "Empate"
+        renderResetGame();
     }
     resetGameElement().appendChild(champ);
 }
