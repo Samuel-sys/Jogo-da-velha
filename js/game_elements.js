@@ -7,6 +7,8 @@ const scoreX = document.querySelector('.score-player-x');
 const PlayerO = document.querySelector('.PlayerO');
 const scoreO = document.querySelector('.score-player-o');
 
+const resetGameElement = () =>{ return document.querySelector(".resetGame");}
+
 const createElement = (tag, className) => {
 
     /*Essa função vai ser responsavel de criar um elemento e já inserir ele dentro de uma classe*/
@@ -44,7 +46,7 @@ function renderGame() {
         position.addEventListener('click', move);
 
         //Mostramos para o player o "nome" do campo que ele ta selecionado, vazendo com que assim ele possa jogar pelo numpad do teclado
-        position.innerHTML = `<h1> ${tabuleiro[x]} </h1>`;
+        position.innerHTML = `<h2> ${tabuleiro[x]} </h2>`;
 
         listPosition.push(position);
         board.appendChild(position);
@@ -107,8 +109,8 @@ function rederMove(m, n) {
 
     //atualiza o placar, informa quem ganhou e carrega a tela de reiniciar o jogo
     renderScore();
-    renderChamp(player);
     renderResetGame();
+    renderChamp(player);
 
 }
 
@@ -121,8 +123,7 @@ function renderChamp(player) {
     } else {
         champ.innerHTML = "Empate"
     }
-    scoreBoard.appendChild(champ);
-    renderResetGame();
+    resetGameElement().appendChild(champ);
 }
 
 function renderScore() {

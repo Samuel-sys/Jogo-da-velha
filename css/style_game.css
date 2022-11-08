@@ -1,149 +1,73 @@
-@import url('./reset_style.css');
+@import url("./reset_style.css");
+@import url("./game_borad.css");
 
-:root{
-    --color-board: #FFF;
-    --color-board-text: #000;
+:root {
+  --color-board: #fff;
+  --color-board-text: #000;
 
-    --pdg-position-top: 10px;
-    --pdg-position-left: 10px;
+  --layout-size-min: 300px;
+
+  --font-xl-board: clamp(1rem, 2vw + 0.1rem, 2rem);
 }
 
-body{
-    min-width: 360px;
-    background-image: url("../image/bg.png");
-    background-color: #FFF;
+body {
+  min-width: 360px;
+  background-image: url("../image/bg.png");
+  background-color: #fff;
+  overflow-x: hidden;
 }
 
-.layou{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 15px;
+.layou {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
 
-    width: 40%;
+  width: 60%;
+  min-width: var(--layout-size-min);
+  min-height: var(--layout-size-min);
 
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.Board {
-    position: relative;
-    border-radius: 15px;
-    border: solid var(--color-board-text) 20px;
-    background-color: #000;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-
-    width: 90%;
-
-    /* Largura em que o grid vai ocupar a tela vai ser de 100% */
-    max-width: 500px;
-    max-height: 500px;
-}
-
-.position {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1/1;
-    background-color: var(--color-board);
-    background-size: cover;
-    background-position: center;
-}
-
-
-.position h1{
-
-    cursor: pointer;
-    color: var(--color-board-text);
-    font-size: var(--font-xl);
-    
-    /*Tem que deixar com a largura e altura no maximo se não o evento "move" do JS não funciona nesse elemento*/
-    height: calc(100% - var(--pdg-position-top));
-    width: calc(100% - var(--pdg-position-left));
-    
-    padding-top: var(--pdg-position-top);
-    padding-left: var(--pdg-position-left);
-}
-
-.X {
-    background-image: url("../image/X.png");
-}
-
-.O {
-    background-image: url("../image/O.png");
-}
-
-
-.resetGame{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.4);
-    align-items: center;
-    justify-content: center;
-}
-
-.iconReset{
-    background-color: #CCC;
-    background-size: 75%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url("../image/reset.png");
-    padding: 20px;
-    border-radius: 100%;
-    width: 15%;
-    height: 15%;
-    cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .scoreboard {
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: #000;
-    margin-bottom: 55px;
+  padding: 5px;
+  flex-direction: column;
+  position: relative;
+  background-color: #000;
+  margin-bottom: 25px;
+  height: 20%;
 }
 
-.scoreboard h3{
-    background-color: #FFF;
-    text-align: center;
-    font-size: var(--font-xl);
+.score {
+  height: 50%;
+  padding: 10px;
+  background-color: #f00;
+  min-width: var(--layout-size-min);
+
+  /*Colocamos o nome com o placar do jogador um do lado do outro*/
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
-.score{
-    padding: 10px;
-    background-color: #F00;
-    width: 100% + 10px;
-    min-width: 300px;
-
-    /*Colocamos o nome com o placar do jogador um do lado do outro*/
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+.player{
+  background-color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: var(--font-md);
 }
 
-.score div{
-    font-size: var(--font-md);
+.winner {
+  background-color: #ff0;
 }
 
-.score button{
-    max-height: 0.3fr;
-    padding: 5px;
-}
-
-.winner{
-    background-color: #ff0;
-}
-
-.zerar{
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 10px;
-    height: auto;
+.zerar {
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px;
+  height: auto;
+  max-height: 0.3fr;
 }
