@@ -21,8 +21,6 @@ function move({ target, id }) {
     else if (id) position = getByPositionHTML(id);
     else return;
 
-    console.log(position);
-
     //Verifica se o campo já foi preenchido ou não
     if (position.className.includes('X') || position.className.includes('O')) {
         return; // Se o campo já foi preenchido ele encerra o jogo
@@ -67,7 +65,7 @@ function resetGame() {
         //Limpa o placar e atualiza com o placar atual
         renderScore();
         let champ = document.querySelector('.champ');
-        if (champ) scoreBoard.removeChild(champ);
+        if (champ) resetGameElement().removeChild(champ);
 
         //remove a tela de reset game
         let screenReset = document.querySelector('.resetGame');
