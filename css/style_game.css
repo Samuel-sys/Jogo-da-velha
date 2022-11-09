@@ -12,8 +12,6 @@
 
 body {
   min-width: 360px;
-  background-image: url("../image/bg.png");
-  background-color: #fff;
   overflow-x: hidden;
 }
 
@@ -29,7 +27,7 @@ body {
   min-width: var(--layout-size-min);
   min-height: var(--layout-size-min);
 
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(180, 179, 179, 0.7);
 }
 
 .scoreboard {
