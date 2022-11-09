@@ -1,10 +1,5 @@
 @import url('./reset_style.css');
 
-body {
-
-    background-color: #000;
-}
-
 /*Bloco flutuante para o usuario logar*/
 .loginGame {
 
