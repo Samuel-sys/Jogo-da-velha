@@ -1,23 +1,43 @@
 @import url('./reset_style.css');
 
-/*Bloco flutuante para o usuario logar*/
+:root {
+    /* clap(Minimo, Ideal, Maximo*/
+    --font-xl: clamp(3rem, 7vw + 0.1rem, 2rem);
+    --font-md: clamp(2.7rem, 5vw + 0.1rem, 1rem);
+}
+
+
 .loginGame {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 15px;
 
-    padding: 25px;
-    min-width: 460px;
-
-    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
-.logo{
-    aspect-ratio: 1/1;
-    height: 15vw;
-    max-height: 240px;
-    min-height: 70px;
+.login_header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: var(--font-xl);
+    text-align: center;
 }
 
-.loginGame h1{
+.login_header img {
+    width: 50%;
+    max-width: 250px;
+    min-width: 150px;
+}
+
+
+
+.loginGame h1 {
     font-size: var(--font-xl);
     text-align: center;
     padding: 10px;
@@ -36,24 +56,28 @@
     text-align: center;
     border-radius: 15px;
     width: 70%;
-    min-width: 130px;
+    min-width: 250px;
     font-size: var(--font-md);
     padding: 5px;
 }
 
-.loginGame button{
+.loginGame button {
     width: 30%;
-    min-width: 50px;
+    min-width: 150px;
 
     margin-top: 5%;
     padding: 7px;
     border-radius: 15px;
     background-color: blue;
+    border: 2px transparent solid;
     color: #FFF;
+    font-size: var(--font-md);
+    font-weight: bold;
     cursor: pointer;
 }
 
-.loginGame button:hover{
+.loginGame button:hover {
     background-color: #FFF;
     color: #000;
+    border: 2px blue solid;
 }

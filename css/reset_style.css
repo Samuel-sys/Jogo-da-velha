@@ -17,7 +17,6 @@ body {
     width: 100%;
     position: absolute;
     display: flex;
-    background-color: #000;
     justify-content: center;
     align-items: center;
 
@@ -25,8 +24,3 @@ body {
     background-color: #000;
 }
 
-:root {
-    /* clap(Minimo, Ideal, Maximo*/
-    --font-xl: clamp(1rem, 4vw + 0.1rem, 2rem);
-    --font-md: clamp(0.7rem, 2vw + 0.1rem, 1rem);
-}

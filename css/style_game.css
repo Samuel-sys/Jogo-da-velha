@@ -8,10 +8,12 @@
   --layout-size-min: 300px;
 
   --font-xl-board: clamp(1rem, 2vw + 0.1rem, 2rem);
+    /* clap(Minimo, Ideal, Maximo*/
+    --font-xl: clamp(1rem, 4vw + 0.1rem, 2rem);
+    --font-md: clamp(0.7rem, 2vw + 0.1rem, 1rem);
 }
 
 body {
-  min-width: 360px;
   overflow-x: hidden;
 }
 
