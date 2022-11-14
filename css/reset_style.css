@@ -19,6 +19,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
     background-image: url("../image/bg.png");
     background-color: #000;

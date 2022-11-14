@@ -13,7 +13,8 @@ const createElement = (tag, className) => {
 
     /*Essa função vai ser responsavel de criar um elemento e já inserir ele dentro de uma classe*/
     const element = document.createElement(tag);
-    element.className = className;
+
+    element.className = className ? className : "";
 
     return element;
 }
@@ -45,14 +46,36 @@ function renderGame() {
         //colocamos a função move vinculado ao elemento HTML 
         position.addEventListener('click', move);
 
-        //Mostramos para o player o "nome" do campo que ele ta selecionado, vazendo com que assim ele possa jogar pelo numpad do teclado
-        position.innerHTML = `<h2> ${tabuleiro[x]} </h2>`;
+        let h2 = createElement("h2");
+        
+        /*Mostramos para o player o "nome" do campo que ele ta selecionado, fazendo com que assim ele 
+        possa jogar pelo numpad do teclado. Se o Usuario estiver em um celular não apresenta esse numeros
+        Já que fica sem sentido para ele pois ele não tem o NumPad*/
+        if (checkDevice()) h2.innerHTML = tabuleiro[x];
+
+        position.appendChild(h2);
 
         listPosition.push(position);
         board.appendChild(position);
     }
 
     renderScore();
+}
+
+function checkDevice() {
+    if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+    ) {
+        return false; // está utilizando celular
+    }
+    else {
+        return true; // não é celular
+    }
 }
 
 function rederMove(m, n) {
