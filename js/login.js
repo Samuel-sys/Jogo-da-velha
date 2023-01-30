@@ -2,7 +2,7 @@ const btnStart = document.querySelector('.btnStart');
 const PlayerO = document.querySelector('#PlayerO');
 const PlayerX = document.querySelector('#PlayerX');
 
-//por hora vou mexer somente com um jogo off mas vou estudar a criação de um jogo da velha online 
+//por hora vou mexer somente com um jogo off mas vou estudar a criação de um jogo da velha online mutiplayer
 function StartGameOFF(Player1, Player2) {
 
     //Questionamos se o usuario vai querer mesmo deixar o nome em branco
@@ -15,6 +15,8 @@ function StartGameOFF(Player1, Player2) {
 
     localStorage.setItem('PlayerX', `${Player1}`);
     localStorage.setItem('PlayerO', `${Player2}`);
+
+    
 }
 
 btnStart.addEventListener('click', () => {
@@ -22,3 +24,13 @@ btnStart.addEventListener('click', () => {
 
     window.location = 'pages/game.html';
 });
+
+window.onload = function(){
+    //Pega o nome dos players que logaram por ultimo e já deixa preenchido
+    const pleyO = localStorage.getItem('PlayerO')
+    const pleyX = localStorage.getItem('PlayerX')
+
+    //Se o ultimo login foi com os nomes de default ele deixa em branco
+    PlayerX.value = pleyX == 'Vó Gerusa'? '' : pleyX;
+    PlayerO.value = pleyO == 'Vó Luizinha'? '' : pleyO;
+}
