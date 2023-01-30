@@ -22,13 +22,13 @@ function StartGameOFF(Player1, Player2) {
 btnStart.addEventListener('click', () => {
     StartGameOFF(PlayerX.value, PlayerO.value)
 
+    localStorage.setItem("scoreX" ,0);
+    localStorage.setItem("scoreO" ,0);
+    
     window.location = 'pages/game.html';
 });
 
 window.onload = function(){
-    localStorage.setItem("scoreX",0);
-    localStorage.setItem("scoreO",0);
-
     //Pega o nome dos players que logaram por ultimo e já deixa preenchido
     const pleyO = localStorage.getItem('PlayerO')
     const pleyX = localStorage.getItem('PlayerX')
