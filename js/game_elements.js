@@ -47,7 +47,7 @@ function renderGame() {
         position.addEventListener('click', move);
 
         let h2 = createElement("h2");
-        
+
         /*Mostramos para o player o "nome" do campo que ele ta selecionado, fazendo com que assim ele 
         possa jogar pelo numpad do teclado. Se o Usuario estiver em um celular não apresenta esse numeros
         Já que fica sem sentido para ele pois ele não tem o NumPad*/
@@ -60,7 +60,6 @@ function renderGame() {
     }
 
     renderScore();
-    zerarScore();
 }
 
 function checkDevice() {
@@ -154,12 +153,14 @@ function renderChamp(player) {
 function renderScore() {
 
     //pega o nome do jogador no localStorage do navegador
-    PlayerX.innerHTML = localStorage.getItem('PlayerX');
-    PlayerO.innerHTML = localStorage.getItem('PlayerO');
+    PlayerX.innerHTML = "( X ) " + localStorage.getItem('PlayerX');
+    PlayerO.innerHTML = "( O ) " + localStorage.getItem('PlayerO');
 
     //pega o placar do jogo no localStorage do navegador
-    scoreX.innerHTML = localStorage.getItem("scoreX");
-    scoreO.innerHTML = localStorage.getItem("scoreO");
+    scoreX.innerHTML = +localStorage.getItem("scoreX");
+    scoreO.innerHTML = +localStorage.getItem("scoreO");
+
+    console.log(localStorage.getItem("scoreX"));
 }
 
 function renderResetGame() {

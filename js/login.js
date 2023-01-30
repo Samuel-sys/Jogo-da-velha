@@ -26,6 +26,9 @@ btnStart.addEventListener('click', () => {
 });
 
 window.onload = function(){
+    localStorage.setItem("scoreX",0);
+    localStorage.setItem("scoreO",0);
+
     //Pega o nome dos players que logaram por ultimo e já deixa preenchido
     const pleyO = localStorage.getItem('PlayerO')
     const pleyX = localStorage.getItem('PlayerX')
