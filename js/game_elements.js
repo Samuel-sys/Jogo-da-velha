@@ -60,6 +60,7 @@ function renderGame() {
     }
 
     renderScore();
+    zerarScore();
 }
 
 function checkDevice() {
